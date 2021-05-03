@@ -10,7 +10,7 @@ function App() {
     <Router>
       <div className="container">
         <Switch>
-          <Route exact path="/personalTemp" component={IndexPage} />
+          <Route exact path="/" component={IndexPage} />
         </Switch>
       </div>
     </Router>

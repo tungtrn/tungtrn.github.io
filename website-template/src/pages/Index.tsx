@@ -1,303 +1,356 @@
-import 'react-vertical-timeline-component/style.min.css';
-
+import Avatar from '@material-ui/core/Avatar';
 import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
+import Container from '@material-ui/core/Container';
+import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import SchoolIcon from '@material-ui/icons/School';
-import StarIcon from '@material-ui/icons/Star';
-import WorkIcon from '@material-ui/icons/Work';
+import LocationOn from '@material-ui/icons/LocationOn';
+import School from '@material-ui/icons/School';
 import React from 'react';
-import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 
-import ButtonAppBar from '../components/appbar/Appbar';
-import AutoGrid from '../components/autoGrid/AutoGrid';
+import pic1 from './pic1.jpg';
 
-// import ImgMediaCard from '../components/imgMediaCard/ImgMediaCard';
-// import Image from './pic1.jpg';
-
-const styles = makeStyles(() => ({
-  paperContainer: {
-    // backgroundImage: 'url(website-template/src/download.png)',
-    backgroundImage: 'url(https://images.unsplash.com/photo-1508624186387-bbddd1513a0e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1953&q=80)',
-    backgroundSize: 'cover',
-    display: 'flex',
-    height: '800px',
-    // backgroundColor: '#f222',
-    // maxHeight: '200px',
+const useStyles = makeStyles(theme => ({
+  outerRoot: {
+    transition: 'all .15s ease',
+    opacity: '.9',
+    background:
+      'linear-gradient(87deg, #172b4d, #1a174d)!important',
   },
-  textPadding: {
-    paddingLeft: '200px',
-    paddingTop: '200px',
-    paddingBottom: '60px',
-    fontSize: '60px',
-    fontFamily: 'Raleway',
+  cardRoot: {
+    // boxShadow: `${boxShadows.boxShadow + '!important',
+    border: '0!important',
   },
-  blankSpace: {
-    paddingTop: '50px',
-    paddingBottom: '50px',
+  cardRootSecondary: {
+    backgroundColor: theme.palette.secondary.main,
   },
-  centerContainer: {
-    alignItems: 'center',
-    alignContent: 'center',
-    alignSelf: 'center',
-    color: '#f222',
-    align: 'center',
+  cardHeaderRoot: {
+    backgroundColor: '#FFFFFF !important',
   },
-  paper: {
-    // display: 'flex',
-    // flexWrap: 'wrap',
-    paddingBottom: '100px',
-    height: '600px',
-    padding: '120px',
-    backgroundImage: 'url(https://images.unsplash.com/photo-1488109811119-98431feb6929?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80)',
+  containerRoot: {
+    [theme.breakpoints.up('md')]: {
+      paddingLeft: '39px',
+      paddingRight: '39px',
+    },
+    zIndex: 1,
+    paddingTop: '10%',
+    paddingBottom: '5%',
+    // marginTop: '-6rem',
+  },
+  gridItemRoot: {
+    [theme.breakpoints.up('xl')]: {
+      marginBottom: '0!important',
+    },
+  },
+  typographyRootH6: {
+    textTransform: 'uppercase',
+  },
+  plLg4: {
+    [theme.breakpoints.up('xl')]: {
+      paddingLeft: '1.5rem',
+    },
+  },
+  ptMd4: {
+    [theme.breakpoints.up('sm')]: {
+      paddingTop: '1.5rem!important',
+    },
+  },
+  mtMd5: {
+    [theme.breakpoints.up('sm')]: {
+      paddingTop: '3rem!important',
+    },
+  },
+  cardHeaderRootProfile: {
+    [theme.breakpoints.up('sm')]: {
+      paddingBottom: '1.5rem!important',
+      paddingTop: '1.5rem!important',
+    },
+  },
+  buttonRootInfo: {
+    color: '#FFFFFF',
+    backgroundColor: theme.palette.info.main,
+    '&:hover': {
+      backgroundColor: theme.palette.info.dark,
+    },
+  },
+  buttonRootDark: {
+    color: '#FFFFFF',
+    backgroundColor: '#172b4d',
+    '&:hover': {
+      backgroundColor: '#0b1526',
+    },
+  },
+  profileImage: {
+    verticalAlign: 'middle',
+    borderStyle: 'none',
+    transform: 'translate(-50%,-30%)',
+    transition: 'all .15s ease',
+    width: '100px',
+    height: '100px',
+    borderRadius: '80%',
+    position: 'absolute',
+    left: '50%',
+  },
+  cardProfileLink: {
+    color: theme.palette.primary.main,
+    backgroundColor: 'initial',
+    textDecoration: 'none',
+    fontSize: '1rem',
+    '&:hover': {
+      color: theme.palette.primary.dark,
+    },
+  },
+  order1: {
+    [theme.breakpoints.down('lg')]: {
+      order: '1!important',
+    },
+  },
+  order2: {
+    [theme.breakpoints.down('lg')]: {
+      order: '2!important',
+    },
+  },
+  marginBottomXl0: {
+    [theme.breakpoints.up('lg')]: {
+      marginBottom: '0!important',
+    },
+  },
+  order1XmarginBottomXl0: {
+    [theme.breakpoints.up('lg')]: {
+      marginBottom: '0!important',
+    },
+    [theme.breakpoints.down('lg')]: {
+      order: '1!important',
+    },
   },
 }));
 
-const Index = () => {
-  const a = 'null';
+function Profile() {
+  const classes = useStyles();
 
   return (
     <>
-      <div className={a}>
-        <ButtonAppBar />
-      </div>
-      <div className={styles().paperContainer}>
-        <div className={styles().textPadding}>
-          hello, i&#39;m
-          {/* <Typography> */}
-          <Box fontWeight="fontWeightBold" fontSize="60px" paddingBottom="20px" paddingTop="20px">
-            Khanh Dang Heo
+      <Container
+        className={classes.outerRoot}
+        maxWidth={false}
+      >
+        <Container
+          maxWidth={false}
+          classes={{ root: classes.containerRoot }}
+        >
+          <Box component={Grid} justifyContent="center">
+            <Grid item xs={12}>
+              <Box position="relative">
+                <Avatar src={pic1} className={classes.profileImage} />
+              </Box>
+            </Grid>
           </Box>
-          a data
-          {/* </Typography> */}
-        </div>
-      </div>
-      <div className={styles().blankSpace}>
-        <br />
-      </div>
-      <Typography align="center">
-        {/* <div className={styles().centerContainer}> */}
-        <Box fontWeight="fontWeightLight" fontSize="40px">
-          My Portfolios
-        </Box>
-      </Typography>
-
-      <Typography align="center">
-        <Box fontWeight="fontWeightLight" fontSize="18px" paddingBottom="20px">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-        </Box>
-      </Typography>
-
-      <AutoGrid />
-      {/* <AutoGrid />
-      <AutoGrid /> */}
-
-      <div className={styles().blankSpace}>
-        <br />
-      </div>
-
-      <Paper className={styles().paper} elevation={0}>
-        <Typography align="center">
-          <Box fontWeight="fontWeightLight" fontSize="40px">
-            My Services
-          </Box>
-        </Typography>
-        <br />
-        <Typography align="center">
-          <Box fontWeight="fontWeightLight" fontSize="18px">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          </Box>
-        </Typography>
-        <Typography align="center">
-          <Box fontWeight="fontWeightLight" fontSize="18px" paddingBottom="60px">
-            Lorem ipsum, dolor sit.
-          </Box>
-        </Typography>
-
-        <Grid container spacing={4} alignItems="center" justify="center">
-          <Grid item xs={3} sm={4}>
-            <Typography align="left">
-              <Box fontWeight="fontWeightBold" fontSize="24px">
-                WEB DESIGN
-              </Box>
-            </Typography>
-            <Typography align="left">
-              <Box fontWeight="fontWeightLight" fontSize="18px" paddingBottom="60px">
-                There are many variations of passages of Ipsum available, but the majority
-                have suffered alteration in some form,
-              </Box>
-            </Typography>
-            <Typography align="left">
-              <Box fontWeight="fontWeightBold" fontSize="24px">
-                WEB DESIGN
-              </Box>
-            </Typography>
-            <Typography align="left">
-              <Box fontWeight="fontWeightLight" fontSize="18px" paddingBottom="60px">
-                There are many variations of passages of Ipsum available, but the majority
-                have suffered alteration in some form,
-              </Box>
-            </Typography>
-            <Typography align="left">
-              <Box fontWeight="fontWeightBold" fontSize="24px">
-                WEB DESIGN
-              </Box>
-            </Typography>
-            <Typography align="left">
-              <Box fontWeight="fontWeightLight" fontSize="18px" paddingBottom="60px">
-                There are many variations of passages of Ipsum available, but the majority
-                have suffered alteration in some form,
-              </Box>
-            </Typography>
+          <Grid container>
+            <Grid
+              item
+              xs={12}
+              component={Box}
+              marginBottom="3rem!important"
+              classes={{
+                root: classes.order1XmarginBottomXl0,
+              }}
+            >
+              <Card
+                classes={{
+                  root: classes.cardRoot,
+                }}
+              >
+                <Box
+                  component={CardHeader}
+                  border="0!important"
+                  textAlign="center"
+                  paddingBottom="0!important"
+                  paddingTop="8rem!important"
+                  className={classes.cardHeaderRootProfile}
+                >
+                  <Box display="flex" justifyContent="space-between">
+                    <Button
+                      variant="contained"
+                      size="small"
+                      classes={{ root: classes.buttonRootInfo }}
+                    >
+                      Connect
+                    </Button>
+                    <Button
+                      variant="contained"
+                      size="small"
+                      classes={{ root: classes.buttonRootDark }}
+                    >
+                      Message
+                    </Button>
+                  </Box>
+                </Box>
+                <Box
+                  component={CardContent}
+                  className={classes.ptMd4}
+                  paddingTop="0!important"
+                >
+                  <Grid container>
+                    <Grid item xs={12}>
+                      {/* <Box
+                        padding="1rem 0"
+                        justifyContent="center"
+                        display="flex"
+                        className={classes.mtMd5}
+                      >
+                        <Box
+                          textAlign="center"
+                          marginRight="1rem"
+                          padding=".875rem"
+                        >
+                          <Box
+                            component="span"
+                            fontSize="1.1rem"
+                            fontWeight="700"
+                            display="block"
+                            letterSpacing=".025em"
+                            className={classes.typographyRootH6}
+                          >
+                            22
+                          </Box>
+                          <Box
+                            component="span"
+                            fontSize=".875rem"
+                            color="#adb5bd"
+                          >
+                            Friends
+                          </Box>
+                        </Box>
+                        <Box
+                          textAlign="center"
+                          marginRight="1rem"
+                          padding=".875rem"
+                        >
+                          <Box
+                            component="span"
+                            fontSize="1.1rem"
+                            fontWeight="700"
+                            display="block"
+                            letterSpacing=".025em"
+                            className={classes.typographyRootH6}
+                          >
+                            10
+                          </Box>
+                          <Box
+                            component="span"
+                            fontSize=".875rem"
+                            color="#adb5bd"
+                          >
+                            Photos
+                          </Box>
+                        </Box>
+                        <Box textAlign="center" padding=".875rem">
+                          <Box
+                            component="span"
+                            fontSize="1.1rem"
+                            fontWeight="700"
+                            display="block"
+                            letterSpacing=".025em"
+                            className={classes.typographyRootH6}
+                          >
+                            89
+                          </Box>
+                          <Box
+                            component="span"
+                            fontSize=".875rem"
+                            color="#adb5bd"
+                          >
+                            Comments
+                          </Box>
+                        </Box>
+                      </Box> */}
+                    </Grid>
+                  </Grid>
+                  <Box textAlign="center">
+                    <Typography variant="h3">
+                      Tung Tran
+                      {/* <Box component="span" fontWeight="300">
+                        , 27
+                      </Box> */}
+                    </Typography>
+                    <Box
+                      fontWeight="300!important"
+                      display="flex"
+                      alignItems="center"
+                      justifyContent="center"
+                    >
+                      <Box
+                        component={LocationOn}
+                        width="1.25rem!important"
+                        height="1.25rem!important"
+                      />
+                      <Typography variant="h5">
+                        Philadelphia, PA
+                      </Typography>
+                    </Box>
+                    <Box
+                      marginTop="3rem!important"
+                      display="flex"
+                      alignItems="center"
+                      justifyContent="center"
+                    >
+                      <Box
+                        component={School}
+                        width="1.25rem!important"
+                        height="1.25rem!important"
+                        marginRight=".5rem"
+                      />
+                      <Typography variant="h5">
+                        Drexel University
+                      </Typography>
+                    </Box>
+                    <Box
+                      display="flex"
+                      alignItems="center"
+                      justifyContent="center"
+                      fontSize="1rem"
+                    >
+                      Sophomore in Computer Science
+                    </Box>
+                    <Box
+                      component={Divider}
+                      marginTop="1.5rem!important"
+                      marginBottom="1.5rem!important"
+                    />
+                    <Box
+                      component="p"
+                      fontWeight="300"
+                      lineHeight="1.7"
+                      marginBottom="1rem"
+                      fontSize="1rem"
+                    >
+                      I am passionate about innovating life by using data, new technology.
+                      I have experience in software engineering, back-end/ database development,
+                      web development
+                    </Box>
+                    {/* <a
+                      href="#mui"
+                      className={classes.cardProfileLink}
+                      onClick={
+                        e => e.preventDefault()
+                      }
+                    >
+                      Show More
+                    </a> */}
+                  </Box>
+                </Box>
+              </Card>
+            </Grid>
           </Grid>
-          <Grid item xs={3} sm={4}>
-            <Typography align="left">
-              <Box fontWeight="fontWeightBold" fontSize="24px">
-                PHOTOGRAPHY
-              </Box>
-            </Typography>
-            <Typography align="left">
-              <Box fontWeight="fontWeightLight" fontSize="18px" paddingBottom="60px">
-                There are many variations of passages of Ipsum available, but the majority
-                have suffered alteration in some form,
-              </Box>
-            </Typography>
-            <Typography align="left">
-              <Box fontWeight="fontWeightBold" fontSize="24px">
-                PHOTOGRAPHY
-              </Box>
-            </Typography>
-            <Typography align="left">
-              <Box fontWeight="fontWeightLight" fontSize="18px" paddingBottom="60px">
-                There are many variations of passages of Ipsum available, but the majority
-                have suffered alteration in some form,
-              </Box>
-            </Typography>
-            <Typography align="left">
-              <Box fontWeight="fontWeightBold" fontSize="24px">
-                PHOTOGRAPHY
-              </Box>
-            </Typography>
-            <Typography align="left">
-              <Box fontWeight="fontWeightLight" fontSize="18px" paddingBottom="60px">
-                There are many variations of passages of Ipsum available, but the majority
-                have suffered alteration in some form,
-              </Box>
-            </Typography>
-          </Grid>
-        </Grid>
-      </Paper>
-
-      <div className={styles().blankSpace}>
-        <br />
-      </div>
-      <Typography align="center">
-        {/* <div className={styles().centerContainer}> */}
-        <Box fontWeight="fontWeightLight" fontSize="40px">
-          Create Team
-        </Box>
-      </Typography>
-
-      <Typography align="center">
-        <Box fontWeight="fontWeightLight" fontSize="18px" paddingBottom="20px">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-        </Box>
-      </Typography>
-      <VerticalTimeline>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-          contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
-          date="2011 - present"
-          iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-          icon={<WorkIcon />}
-        >
-          <h3 className="vertical-timeline-element-title">Creative Director</h3>
-          <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4>
-          <p>
-            Creative Direction, User Experience, Visual Design, Project Management, Team Leading
-          </p>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          date="2010 - 2011"
-          iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-          icon={<WorkIcon />}
-        >
-          <h3 className="vertical-timeline-element-title">Art Director</h3>
-          <h4 className="vertical-timeline-element-subtitle">San Francisco, CA</h4>
-          <p>
-            Creative Direction, User Experience, Visual Design, SEO, Online Marketing
-          </p>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          date="2008 - 2010"
-          iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-          icon={<WorkIcon />}
-        >
-          <h3 className="vertical-timeline-element-title">Web Designer</h3>
-          <h4 className="vertical-timeline-element-subtitle">Los Angeles, CA</h4>
-          <p>
-            User Experience, Visual Design
-          </p>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          date="2006 - 2008"
-          iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-          icon={<WorkIcon />}
-        >
-          <h3 className="vertical-timeline-element-title">Web Designer</h3>
-          <h4 className="vertical-timeline-element-subtitle">San Francisco, CA</h4>
-          <p>
-            User Experience, Visual Design
-          </p>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--education"
-          date="April 2013"
-          iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
-          icon={<SchoolIcon />}
-        >
-          <h3 className="vertical-timeline-element-title">Content Marketing for Web, Mobile and Social Media</h3>
-          <h4 className="vertical-timeline-element-subtitle">Online Course</h4>
-          <p>
-            Strategy, Social Media
-          </p>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--education"
-          date="November 2012"
-          iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
-          icon={<SchoolIcon />}
-        >
-          <h3 className="vertical-timeline-element-title">Agile Development Scrum Master</h3>
-          <h4 className="vertical-timeline-element-subtitle">Certification</h4>
-          <p>
-            Creative Direction, User Experience, Visual Design
-          </p>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--education"
-          date="2002 - 2006"
-          iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
-          icon={<SchoolIcon />}
-        >
-          <h3 className="vertical-timeline-element-title">Bachelor of Science in Interactive Digital Media Visual Imaging</h3>
-          <h4 className="vertical-timeline-element-subtitle">Bachelor Degree</h4>
-          <p>
-            Creative Direction, Visual Design
-          </p>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement
-          iconStyle={{ background: 'rgb(16, 204, 82)', color: '#fff' }}
-          icon={<StarIcon />}
-        />
-      </VerticalTimeline>
+        </Container>
+      </Container>
     </>
   );
-};
-export default Index;
+}
+
+export default Profile;
