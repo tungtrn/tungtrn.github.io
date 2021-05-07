@@ -13,6 +13,8 @@ import LocationOn from '@material-ui/icons/LocationOn';
 import School from '@material-ui/icons/School';
 import React from 'react';
 
+import Experience from '../components/experience';
+import Projects from '../components/Projects';
 import pic1 from './pic1.jpg';
 
 const useStyles = makeStyles(theme => ({
@@ -333,15 +335,18 @@ function Profile() {
                       I have experience in software engineering, back-end/ database development,
                       web development
                     </Box>
-                    {/* <a
-                      href="#mui"
-                      className={classes.cardProfileLink}
-                      onClick={
-                        e => e.preventDefault()
-                      }
-                    >
-                      Show More
-                    </a> */}
+                    <Box
+                      component={Divider}
+                      marginTop="1.5rem!important"
+                      marginBottom="1.5rem!important"
+                    />
+                    <Experience />
+                    <Box
+                      component={Divider}
+                      marginTop="1.5rem!important"
+                      marginBottom="1.5rem!important"
+                    />
+                    <Projects />
                   </Box>
                 </Box>
               </Card>
