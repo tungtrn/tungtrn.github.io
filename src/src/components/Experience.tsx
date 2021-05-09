@@ -1,8 +1,19 @@
 import { Timeline, TimelineItem } from 'vertical-timeline-component-for-react';
 import React from 'react';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
 
-function Experience() {
-  return (
+const Experience = () => (
+  <>
+    <Box
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Typography variant="h5">
+        Experience
+      </Typography>
+    </Box>
     <Timeline lineColor="#ddd">
       <TimelineItem
         key="001"
@@ -23,7 +34,7 @@ function Experience() {
       </TimelineItem>
       <TimelineItem
         key="002"
-        dateText="09/2020 – 04/2021"
+        dateText="9/2020 – 4/2021"
         dateInnerStyle={{ background: 'rgb(169, 201, 74)' }}
         style={{ color: 'rgb(169, 201, 74)' }}
       >
@@ -55,7 +66,7 @@ function Experience() {
         </p>
       </TimelineItem>
     </Timeline>
-  );
-}
+  </>
+);
 
 export default Experience;

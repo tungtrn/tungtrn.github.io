@@ -13,9 +13,11 @@ import LocationOn from '@material-ui/icons/LocationOn';
 import School from '@material-ui/icons/School';
 import React from 'react';
 
-import Experience from '../components/experience';
-import Projects from '../components/Projects';
-import pic1 from './pic1.jpg';
+import Experience from '../components/Experience';
+import Header from '../components/Header';
+import { Projects } from '../components/Projects';
+import Connect from '../components/Footer';
+import profile from '../asset/images/profile.jpg';
 
 const useStyles = makeStyles(theme => ({
   outerRoot: {
@@ -137,7 +139,9 @@ function Profile() {
 
   return (
     <>
+      <Header />
       <Container
+        id="about"
         className={classes.outerRoot}
         maxWidth={false}
       >
@@ -148,7 +152,7 @@ function Profile() {
           <Box component={Grid} justifyContent="center">
             <Grid item xs={12}>
               <Box position="relative">
-                <Avatar src={pic1} className={classes.profileImage} />
+                <Avatar src={profile} className={classes.profileImage} />
               </Box>
             </Grid>
           </Box>
@@ -197,88 +201,9 @@ function Profile() {
                   className={classes.ptMd4}
                   paddingTop="0!important"
                 >
-                  <Grid container>
-                    <Grid item xs={12}>
-                      {/* <Box
-                        padding="1rem 0"
-                        justifyContent="center"
-                        display="flex"
-                        className={classes.mtMd5}
-                      >
-                        <Box
-                          textAlign="center"
-                          marginRight="1rem"
-                          padding=".875rem"
-                        >
-                          <Box
-                            component="span"
-                            fontSize="1.1rem"
-                            fontWeight="700"
-                            display="block"
-                            letterSpacing=".025em"
-                            className={classes.typographyRootH6}
-                          >
-                            22
-                          </Box>
-                          <Box
-                            component="span"
-                            fontSize=".875rem"
-                            color="#adb5bd"
-                          >
-                            Friends
-                          </Box>
-                        </Box>
-                        <Box
-                          textAlign="center"
-                          marginRight="1rem"
-                          padding=".875rem"
-                        >
-                          <Box
-                            component="span"
-                            fontSize="1.1rem"
-                            fontWeight="700"
-                            display="block"
-                            letterSpacing=".025em"
-                            className={classes.typographyRootH6}
-                          >
-                            10
-                          </Box>
-                          <Box
-                            component="span"
-                            fontSize=".875rem"
-                            color="#adb5bd"
-                          >
-                            Photos
-                          </Box>
-                        </Box>
-                        <Box textAlign="center" padding=".875rem">
-                          <Box
-                            component="span"
-                            fontSize="1.1rem"
-                            fontWeight="700"
-                            display="block"
-                            letterSpacing=".025em"
-                            className={classes.typographyRootH6}
-                          >
-                            89
-                          </Box>
-                          <Box
-                            component="span"
-                            fontSize=".875rem"
-                            color="#adb5bd"
-                          >
-                            Comments
-                          </Box>
-                        </Box>
-                      </Box> */}
-                    </Grid>
-                  </Grid>
                   <Box textAlign="center">
                     <Typography variant="h3">
                       Tung Tran
-                      {/* <Box component="span" fontWeight="300">
-                        , 27
-                      </Box> */}
                     </Typography>
                     <Box
                       fontWeight="300!important"
@@ -320,11 +245,6 @@ function Profile() {
                       Sophomore in Computer Science
                     </Box>
                     <Box
-                      component={Divider}
-                      marginTop="1.5rem!important"
-                      marginBottom="1.5rem!important"
-                    />
-                    <Box
                       component="p"
                       fontWeight="300"
                       lineHeight="1.7"
@@ -347,6 +267,12 @@ function Profile() {
                       marginBottom="1.5rem!important"
                     />
                     <Projects />
+                    <Box
+                      component={Divider}
+                      marginTop="1.5rem!important"
+                      marginBottom="1.5rem!important"
+                    />
+                    <Connect />
                   </Box>
                 </Box>
               </Card>
