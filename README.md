@@ -1,3 +1,3 @@
-# personalTemp
+# Tung Tran - Portfolio
 
-Test commit
+This project is built using with React, Typescript.

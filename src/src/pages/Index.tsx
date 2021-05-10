@@ -9,15 +9,16 @@ import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import GetAppIcon from '@material-ui/icons/GetApp';
 import LocationOn from '@material-ui/icons/LocationOn';
 import School from '@material-ui/icons/School';
 import React from 'react';
 
+import profile from '../asset/images/profile.jpg';
 import Experience from '../components/Experience';
+import Connect from '../components/Footer';
 import Header from '../components/Header';
 import { Projects } from '../components/Projects';
-import Connect from '../components/Footer';
-import profile from '../asset/images/profile.jpg';
 
 const useStyles = makeStyles(theme => ({
   outerRoot: {
@@ -27,7 +28,6 @@ const useStyles = makeStyles(theme => ({
       'linear-gradient(87deg, #172b4d, #1a174d)!important',
   },
   cardRoot: {
-    // boxShadow: `${boxShadows.boxShadow + '!important',
     border: '0!important',
   },
   cardRootSecondary: {
@@ -131,6 +131,11 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('lg')]: {
       order: '1!important',
     },
+  },
+  resumeBtn: {
+    borderRadius: 15,
+    backgroundColor: '#D6DADE',
+    width: '8rem',
   },
 }));
 
@@ -245,15 +250,31 @@ function Profile() {
                       Sophomore in Computer Science
                     </Box>
                     <Box
-                      component="p"
-                      fontWeight="300"
-                      lineHeight="1.7"
-                      marginBottom="1rem"
-                      fontSize="1rem"
+                      marginTop="3rem!important"
+                      // display="flex"
+                      alignItems="center"
+                      justifyContent="center"
                     >
-                      I am passionate about innovating life by using data, new technology.
-                      I have experience in software engineering, back-end/ database development,
-                      web development
+                      <Box
+                        component="p"
+                        fontWeight="300"
+                        lineHeight="1.7"
+                        marginBottom="1rem"
+                        fontSize="1rem"
+                      >
+                        I am passionate about innovating life by using data, new technology
+                        with experience in software engineering, back-end/ database development,
+                        web development
+                      </Box>
+                      <Button
+                        className={classes.resumeBtn}
+                        href="https://drive.google.com/uc?export=download&id=1LCT8b4ow2TT97K7GxE1bGb1tdDgTJXpk"
+                      >
+                        <GetAppIcon />
+                        <Typography>
+                          Resume
+                        </Typography>
+                      </Button>
                     </Box>
                     <Box
                       component={Divider}

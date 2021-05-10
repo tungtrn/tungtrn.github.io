@@ -1,17 +1,22 @@
-import React from 'react';
 import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import GitHubIcon from '@material-ui/icons/GitHub';
-import { Link } from 'react-scroll';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import MailIcon from '@material-ui/icons/Mail';
+import React from 'react';
 
 const useStyles = makeStyles(({
   icons: {
     margin: '1rem',
     fontSize: '35px',
     color: '#74787d',
+  },
+  iconBtn: {
+    '&:hover': {
+      backgroundColor: '#FFFFFF',
+    },
   },
 }));
 
@@ -28,18 +33,18 @@ const Connect = () => {
           justifyContent="center"
         >
           <Typography variant="h5">
-            Lets Connect!
+            Let&apos;s Connect!
           </Typography>
         </Box>
-        <Link href="https://github.com/tungtrn">
+        <IconButton href="https://github.com/tungtrn" className={classes.iconBtn}>
           <GitHubIcon className={classes.icons} />
-        </Link>
-        <Link href="https://www.linkedin.com/in/tungdavidtran/">
+        </IconButton>
+        <IconButton href="https://www.linkedin.com/in/tungdavidtran/" className={classes.iconBtn}>
           <LinkedInIcon className={classes.icons} />
-        </Link>
-        <Link href="mailto:tungt1281@gmail.com">
+        </IconButton>
+        <IconButton href="mailto:tungt1281@gmail.com" className={classes.iconBtn}>
           <MailIcon className={classes.icons} />
-        </Link>
+        </IconButton>
       </div>
     </>
   );
