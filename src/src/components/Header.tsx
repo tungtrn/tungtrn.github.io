@@ -23,6 +23,9 @@ const useStyles = makeStyles(theme => ({
     bottom: 0,
     right: 0,
     zIndex: -1,
+    [theme.breakpoints.down('sm')]: {
+      padding: '0rem 4.6rem',
+    },
   },
   heroTitle: {
     fontSize: '5.6rem',
