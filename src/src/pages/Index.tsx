@@ -247,7 +247,7 @@ function Profile() {
                       justifyContent="center"
                       fontSize="1rem"
                     >
-                      Sophomore in Computer Science
+                      Junior in Computer Science
                     </Box>
                     <Box
                       marginTop="3rem!important"
@@ -268,7 +268,7 @@ function Profile() {
                       </Box>
                       <Button
                         className={classes.resumeBtn}
-                        href="https://drive.google.com/uc?export=download&id=1QIobYvHwUtwZfbrZ3Ic6QskHZ8hAs0DN"
+                        href="https://drive.google.com/uc?export=download&id=1hl_UpK0fRecEnJZSTRvpK8KmCBrzLfES"
                       >
                         <GetAppIcon />
                         <Typography>
